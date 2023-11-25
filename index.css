@@ -316,8 +316,8 @@ article>img:hover {
 
 .caroussel {
     display: flex;
-    grid-column: 2;
-    justify-content: center;
+    grid-column: 1/span 3;
+    justify-items: center;
     height: 20rem;
 
 
@@ -325,7 +325,7 @@ article>img:hover {
 
 .caroussel>article {
     flex: 1;
-    background-size: auto 100%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border: solid 1px white;
@@ -333,20 +333,8 @@ article>img:hover {
 }
 
 .caroussel>article:hover {
-    flex: 5;
-}
+    flex: 3;
 
-.caroussel>article.clicked {
-
-    animation: Flexou 4s;
-
-}
-
-@keyframes Flexou {
-
-    50% {
-        flex: 8;
-    }
 }
 
 /* -----------------------------------------------Contact------------------------------------- */
