@@ -12,7 +12,7 @@
 }
 
 body {
-    background-image: url(/LBA/Divers_tof/New_back.webp);
+    background-image: url(/Lex-Pression-tof/New_back.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
@@ -123,7 +123,7 @@ ul li p {
 
 .header-container>div:nth-child(3) {
     grid-area: 2 / 3 / 3 / 4;
-    background-image: url(/LBA/Divers_tof/Image_Moi.webp);
+    background-image: url(/Lex-Pression-tof/Image_Moi.webp);
     background-color: var(--Black);
     background-position: center;
     background-repeat: no-repeat;
@@ -182,7 +182,7 @@ ul li p {
     width: min(200px, 100%);
     height: min(700px, 100%);
     justify-self: flex-end;
-    background-image: url(/LBA/Divers_tof/Image_moi_2.webp);
+    background-image: url(/Lex-Pression-tof/Image_moi_2.webp);
     background-size: cover;
     background-position: center;
 
