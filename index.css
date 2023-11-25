@@ -280,7 +280,6 @@ li {
     padding: 10px;
     font-size: 2em;
     opacity: .9;
-
 }
 
 /* ---------------------------------------------Caroussel------------------------------------------- */
@@ -337,6 +336,18 @@ article>img:hover {
     flex: 5;
 }
 
+.caroussel>article.clicked {
+
+    animation: Flexou 4s;
+
+}
+
+@keyframes Flexou {
+
+    50% {
+        flex: 8;
+    }
+}
 
 /* -----------------------------------------------Contact------------------------------------- */
 

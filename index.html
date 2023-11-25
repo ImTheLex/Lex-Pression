@@ -59,7 +59,7 @@
                     <li>CSS</li>
                         <p>Les grandes bases.</p>
                     <li>JavaScript</li>
-                        <p>Quelques petites notions, les fonctions, variables, conditions, boucles, classes, setters, getters, fonctions usuelles, promesses, modules, fetch(), timers.</p>
+                        <p>Quelques petites notions, les fonctions, variables, conditions, boucles, classes, setters, getters, fonctions usuelles, promesses, modules, fetch(), timers, event-listeners, templates, todo-list.</p>
                 </ul>
             </div>
             <div>   
@@ -110,27 +110,33 @@
 
 <script>
 
-    let daul = document.getElementsByClassName("UL")
-    let datitle = document.getElementsByClassName("titles")
+    // On récupère les éléments dont la classe est "UL" et titles.
+        let daul = document.getElementsByClassName("UL")
+        let datitle = document.getElementsByClassName("titles")
 
-    function opendatab(nomul){
-        for(uls of daul) {
-            uls.classList.remove('active-ul')
-        }
-        for(datitre of datitle) {
-            datitre.classList.remove('active-title')
-        }
-        event.currentTarget.classList.add('active-title')
-        document.getElementById(nomul).classList.add('active-ul')
-        }
+            function opendatab(nomul){ // Pour chaque uls parmis la classe UL.
+                for(uls of daul) {
+                    uls.classList.remove('active-ul') // On retire la classe.
+                }
+                for(datitre of datitle) {
+                    datitre.classList.remove('active-title') // Pour chaqu'un des titres, on retire le titre.
+                }
+                event.currentTarget.classList.add('active-title') // Le titre qui est actuellement ciblé par l'event "onclick=opendatab" se voit ajouté la classe.
+                document.getElementById(nomul).classList.add('active-ul') // On récupère l'id en fonction de la valeur de nomul.
+            }
 
-    let activeimg = document.getElementsByTagName("article")
+        const scaled_article = document.querySelectorAll('article')
+        const scaled_articles = document.querySelectorAll('article');
 
-    function fixedImg (tag) {
-    
-    }
-
-
+            scaled_articles.forEach(article => {
+                article.addEventListener('click', event => {
+                    scaled_articles.forEach(article => {
+                        article.classList.remove("clicked");
+                    });
+                    event.currentTarget.classList.add("clicked");
+                });
+            });
+            
 </script>
 </body>
 </html>
