@@ -1,0 +1,453 @@
+* {
+    border-radius: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.01em;
+}
+
+:root {
+    --Black: rgb(0, 0, 0);
+    --Red: rgba(233, 0, 0, 0.575);
+    --Blue: rgb(138, 138, 242);
+    color: white;
+}
+
+body {
+    background-image: url(/LBA/Divers_tof/New_back.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+
+.header-container {
+    display: grid;
+    grid-gap: 20px;
+    height: fit-content;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 0.5fr 1fr 0.5fr;
+    /* border: 2px solid white; */
+    /* background-color: var(--Black); */
+}
+
+.header-container>div {
+    border: solid 1px white;
+    background-color: var(--Black);
+    transition: 0.5s ease;
+    opacity: .9;
+}
+
+.header-container>div:hover {
+    transform: scale(1.005);
+    opacity: 1;
+}
+
+/* -----------------------------------Navigation-------------------------- */
+
+a {
+    text-decoration: none;
+}
+
+.navigation {
+    grid-area: 1 / 1 / 2 / 4;
+    display: flex;
+    flex-direction: row-reverse;
+    align-self: center;
+    justify-self: flex-end;
+    background-color: var(--Black);
+    /* Détermine l'emplacement de la navigation dans son parent grid */
+    width: fit-content;
+}
+
+.navigation ul li {
+    list-style: none;
+    display: inline-flex;
+    margin-right: 40px;
+    position: relative;
+    opacity: 0.75;
+    transition: 0.9s ease;
+
+}
+
+.navigation ul li:hover {
+    opacity: 1;
+}
+
+.navigation ul li::before {
+    /* On défini le contenu de :after comme étant vide, normal on veut juste créer un effet de bordure */
+    content: '';
+    position: absolute;
+    /* Cette bordure aura 100% de largeur de li */
+    width: 100%;
+    /* Elle aura une hauteur de 2px */
+    height: 2px;
+    /* En fait c'est comme si on créeait un background sur li sauf qu'on lui attribue des paramètres afin d'en faire un effet de bordure */
+    background: var(--Blue);
+    /* Son emplacement */
+    bottom: 10px;
+    left: 0;
+    /* On lui attribue une transformation horizontale ou scalex(0) représente le début de chaque li */
+    transform: scaleX(0);
+    /* On défini le type de transition de transform */
+    transition: transform 0.5s ease-out;
+    /* Dans notre cas la fin de transition se fera à droite */
+    transform-origin: right;
+}
+
+.navigation ul li:hover::before {
+    /* La fin de la transformation horizontale sera à la fin de li */
+    transform: scaleX(1);
+    /* Dans notre cas le début de transition se fera à gauche */
+    transform-origin: left;
+
+}
+
+ul li p {
+    color: white;
+}
+
+/* ----------------------------------------------------Accueil---------------------------------------------- */
+
+/* --------Définition des blocks d'info-------- */
+
+/* Brève intro */
+
+.header-container>div:nth-child(2) {
+    grid-area: 2 / 1 / 3 / 3;
+    text-align: center;
+    border-radius: 10px;
+    padding: 40px;
+    font-size: 1.1em;
+}
+
+/* Photo */
+
+.header-container>div:nth-child(3) {
+    grid-area: 2 / 3 / 3 / 4;
+    background-image: url(/LBA/Divers_tof/Image_Moi.webp);
+    background-color: var(--Black);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: min(200px, 100%);
+    height: min(500px, 100%);
+    opacity: 1;
+}
+
+.header-container h1 {
+    font-size: 2.8em;
+}
+
+.header-container span {
+    color: var(--Blue)
+}
+
+/* Description box */
+
+.header-container>div:nth-child(4) {
+    grid-area: 3 / 1 / 4 / 4;
+    align-self: center;
+    padding: 20px;
+
+}
+
+/* -----------------------------------------------A propos----------------------------------------------- */
+
+/* Grand conteneur à propos */
+
+.about-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    width: 100%;
+    height: fit-content;
+    margin-top: 40px;
+    grid-gap: 20px;
+}
+
+/* Application d'une bordure à chaque div enfant de à propos */
+.about-container>div {
+    border: solid 1px white;
+    opacity: .9;
+    transition: 0.5s ease;
+
+}
+
+.about-container>div:hover {
+    opacity: 1;
+}
+
+/* 1er enfant de .a-propos */
+.about-container>div:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 2;
+    width: min(200px, 100%);
+    height: min(700px, 100%);
+    justify-self: flex-end;
+    background-image: url(/LBA/Divers_tof/Image_moi_2.webp);
+    background-size: cover;
+    background-position: center;
+
+}
+
+/* 2ème enfant de .a-propos */
+.about-container>div:nth-child(2) {
+    grid-area: 1 / 2 / 2 / 4;
+    background-color: var(--Black);
+    list-style: none;
+    height: fit-content;
+    min-height: 300px;
+    padding-right: 40px;
+
+}
+
+/* ---------------------------------------titres des ul-------------------------------------- */
+.about h2 {
+    display: inline-flex;
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+}
+
+/* container de titres */
+.about-titles {
+    margin: 15px;
+}
+
+/* animation de sous-titre h2 */
+.about h2::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    height: 2px;
+    background: var(--Blue);
+    transform: scaleX(0);
+    transition: transform 0.5s ease-out;
+    transform-origin: right;
+}
+
+/* animation h2 suite */
+.about h2:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+
+}
+
+/* pour les titres en cours d'ouverture */
+.titles.active-title::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ----------------------------------------ul---------------------------------------- */
+/* On cache les UL par défaut afin de ne pas afficher celles qu'on ne veut pas */
+.UL {
+    display: none;
+    list-style: none;
+}
+
+/* lorsqu'une ul est active en fonction de h2 */
+.UL.active-ul {
+    display: block;
+}
+
+li {
+    color: var(--Blue)
+}
+
+
+/* -----------------------------------------Realisations------------------------------------ */
+
+.Realisations-container {
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fill, minmax(140px, 1fr));
+    height: fit-content;
+    width: 100%;
+    /* border: solid 3px white; */
+}
+
+.Realisations-container>div {
+    border: solid 1px white;
+}
+
+.Realisations-container>:nth-child(1) {
+    grid-area: 1 / span 3;
+    background-color: black;
+    justify-self: center;
+    align-self: center;
+    margin: 0;
+    padding: 10px;
+    font-size: 2em;
+    opacity: .9;
+
+}
+
+/* ---------------------------------------------Caroussel------------------------------------------- */
+
+/* .caroussel {
+    grid-column: 1 / span 3;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(140px, 1fr));
+    display: grid;
+    height: fit-content;
+    justify-items: center;
+    align-self: center;
+
+
+}
+
+article {
+    max-width: 150px;
+    max-height: 140px;
+}
+
+article>img {
+    flex: 1;
+    background-size: cover;
+    width: max(150px, 100%);
+    height: max(140px, 100%);
+    border: 1px solid white;
+    transition: 0.5s ease-in-out;
+}
+
+article>img:hover {
+    transform: scale(1.5);
+} */
+
+.caroussel {
+    display: flex;
+    grid-column: 2;
+    justify-content: center;
+    height: 20rem;
+
+
+}
+
+.caroussel>article {
+    flex: 1;
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: solid 1px white;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.caroussel>article:hover {
+    flex: 5;
+}
+
+
+/* -----------------------------------------------Contact------------------------------------- */
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 50px;
+    padding-bottom: 60px;
+    height: fit-content;
+    width: 100%;
+    /* border: solid 2px white; */
+
+}
+
+.contact-container h2 {
+    grid-area: 1 / span 3;
+    text-align: center;
+    justify-self: center;
+    margin-top: 20px;
+    margin-bottom: 90px;
+    font-size: 2em;
+    background-color: var(--Black);
+    padding: 20px;
+    border: solid 1px white;
+    opacity: .9;
+}
+
+.contact-container ul {
+    grid-area: 2 / 1 / 3 / 4;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding-inline-start: 5px;
+    opacity: .9;
+}
+
+.contact-container a {
+    color: white;
+    font-size: 1.3em;
+    padding: 30px;
+    border-radius: 50%;
+    background-color: var(--Black);
+    border: solid 1px white;
+    animation: border-transform 10s linear infinite alternate forwards;
+}
+
+.contact-container a:hover {
+    background-color: rgba(139, 73, 73, 0.49);
+}
+
+
+/* --------------------------------------------@rules------------------------------------------ */
+
+@keyframes border-transform {
+
+    0%,
+    100% {
+        border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+    }
+
+    14% {
+        border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%;
+    }
+
+    28% {
+        border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
+    }
+
+    42% {
+        border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
+    }
+
+    56% {
+        border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%;
+    }
+
+    70% {
+        border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
+    }
+
+    84% {
+        border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
+    }
+
+}
+
+@media screen and (max-width:675px) {
+
+    .header-container>div:nth-child(2) {
+
+        padding: 20px;
+        font-size: 1em;
+    }
+
+    .about-container>div:nth-child(1) {
+        grid-area: 1 / 1 / 2 / 2;
+        width: min(200px, 100%);
+        height: min(100px, 100%);
+        background-size: cover;
+
+    }
+}
+
+@media screen and (max-width:550px) {
+    .header-container {
+        grid-template-rows: 0.2fr 1fr 0.5fr;
+    }
+
+    .navigation {
+        font-size: .6em;
+        justify-self: center;
+    }
+}

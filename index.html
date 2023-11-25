@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ceci est une page web de type portfolio. Elle a pour but de me présenter. Un barre de navigation se situe dans le coin surpérieur droit de la page. Sur ordinateur du moins. Il y a 4 sections distinctes, l'Accueil, À propos, Réalisations et contact.">
+    <title>Mon portfolio</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+    </style>
+</head>
+<body> 
+    <header>
+        <div class="header-container">
+            <div class="navigation">
+                <nav>
+                    <ul>
+                        <li><a href="#accueil"><p>Accueil</p></a></li>
+                        <li><a href="#about"><p>À propos</p></a></li>
+                        <li><a href="#Realised"><p>Réalisations</p></a></li>
+                        <li><a href="#Contact"><p>Contact</p></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="accueil">
+                <h1>Je m'appelle<br><span>Nicolas Henkes</span></h1>
+                <p>Et ce website a pour but de me présenter !</p>
+            </div>
+            <div></div>
+            <div><p>Donc vous le savez désormais, je m'appelle <span>Nicolas</span> et je suis étudiant en <span>développement web</span> front-end. <br> J'adore le domaine informatique, et d'ailleurs de nos jours, <span>difficile</span> de s'en passer ! <br>Chaque jour j'essaye d'<span>apprendre</span> quelque chose de nouveau, c'est ma nature <span>curieuse</span>, à toujours vouloir comprendre le pourquoi du comment !</p></div>
+        </div>
+    </header>
+
+    <section class="about-container" id="about">
+        <!-- Cette div contient la photo about dans le 1er grid -->
+        <div></div>
+        <!-- Cette div contient la section about dans le 2eme grid -->
+        <div class="about">
+            
+            <div class="about-titles">
+            <h2 class="titles active-title" onclick="opendatab('Etudes')">Education</h2>
+            <h2 class="titles" onclick="opendatab('Experience')">Expériences</h2>
+            <h2 class="titles" onclick="opendatab('Skills')">Compétences</h2>
+            </div>
+            <div class="about-content">
+                <ul class="UL active-ul" id="Etudes">
+                    <li>2015 - 2017 :</li>
+                        <p>Fin d'études secondaire en technique de l'informatique à Don Bosco (Tournai)</p>
+                    <li>2023 - ? :</li>
+                        <p>Début de formation en développement web à l'IFAPME (Tournai)</p>
+                </ul>
+            </div>
+            <div>
+                <ul class="UL" id="Experience">
+                    <li>HTML</li>
+                        <p>Le nécessaire pour créer une page web, ne serait-ce que pour une présentation.</p>
+                    <li>CSS</li>
+                        <p>Les grandes bases.</p>
+                    <li>JavaScript</li>
+                        <p>Quelques petites notions, les fonctions, variables, conditions, boucles, classes, setters, getters, fonctions usuelles, promesses, modules, fetch(), timers.</p>
+                </ul>
+            </div>
+            <div>   
+                <ul class="UL" id="Skills">
+                    <li>Patient</li>
+                        <p>Je prends le temps d'écouter, ou d'analyser une situation.</p>
+                    <li>Curieux</li>
+                        <p>Je cherche toujours à comprendre le comportement de ce qui m'entoure.</p>
+                    <li>Motivé</li>
+                        <p>Je m'implique énormément dans ce que j'entreprends. Si je n'arrive pas, je persévère et si je réussi, je cherche à faire plus.</p>
+                    <li>Rigoureux</li>
+                        <p>Je respecte un temps de travail minimal par jour. Je ne laisse aucun jour vide d'expérience.</p>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="Realisations-Section" id="Realised">
+        <div class="Realisations-container">
+            <div><h2>Réalisations</h2></div>
+            <div class="caroussel">
+                <article style="background-image: url(/LBA/Divers_tof/Portfolio_1.webp);">
+                </article>
+                <article style="background-image: url(/LBA/Divers_tof/Portfolio_2.webp);">
+                </article>
+                <article style="background-image: url(/LBA/Divers_tof/Portfolio_3.webp);">
+                </article>
+                <article style="background-image: url(/LBA/Divers_tof/Portfolio_4.webp);">
+                </article>
+                <article style="background-image: url(/LBA/Divers_tof/Portfolio_5.webp);">
+                </article>
+                <article style="background-image: url(/LBA/Divers_tof/Portfolio_6.webp);">
+                </article>
+            </div>
+        </div>
+    </section>
+    <section class="Contact-Section" id="Contact">
+        <div class="contact-container">
+            <h2>Envie de me contacter ? Faites vous plaisir !</h2>
+            <ul>
+                <li><a href="mailto:nicolas.henkes@apprenant.ifapme.be" target="_blank">Mail</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552672584500" target="_blank">FB</a></li>
+                <li><a href="#">Tel</a></li>
+                <li><a href="https://www.linkedin.com/in/nicolas-henkes-831097166/" target="_blank">Ln</a></li>
+            </ul>
+        </div>
+    </section>
+
+<script>
+
+    let daul = document.getElementsByClassName("UL")
+    let datitle = document.getElementsByClassName("titles")
+
+    function opendatab(nomul){
+        for(uls of daul) {
+            uls.classList.remove('active-ul')
+        }
+        for(datitre of datitle) {
+            datitre.classList.remove('active-title')
+        }
+        event.currentTarget.classList.add('active-title')
+        document.getElementById(nomul).classList.add('active-ul')
+        }
+
+    let activeimg = document.getElementsByTagName("article")
+
+    function fixedImg (tag) {
+    
+    }
+
+
+</script>
+</body>
+</html>
